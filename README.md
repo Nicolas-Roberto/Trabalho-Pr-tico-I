@@ -20,8 +20,8 @@ Alunos
 Para executar o projeto, será necessário instalar os seguintes programas:
 
 - [CodeBlocks: Necessário para executar o projeto em C](https://www.codeblocks.org/downloads/)
-- [Maven 3.5.3: Necessário para realizar o build do projeto Java](http://mirror.nbtelecom.com.br/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip)
-- 
+- [Mingw: Necessário para compilar o projeto em C](https://sourceforge.net/projects/mingw-w64/)
+
 
 
 ## Testes
@@ -29,7 +29,7 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 Para rodar os testes, utilize o comando abaixo:
 
 ```
-mvn test
+comando de teste
 ```
 
 MIT License
