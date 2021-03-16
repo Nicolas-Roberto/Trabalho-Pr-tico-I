@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1615918876 source:d:\projetos\eda\trabalho prático i\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+
+1615918378 source:d:\projetos\eda\trabalho prático i\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
+1615918339 d:\projetos\eda\trabalho prático i\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
+1615925186 d:\projetos\eda\trabalho prático i\biblioteca.h
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
