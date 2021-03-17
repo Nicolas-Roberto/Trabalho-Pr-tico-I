@@ -29,12 +29,17 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 
 Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
 
-```shell
+```
 cd "diretorio de sua preferencia"
 git clone https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I.git
 ```
+## Teste
 
+Abra o terminal na pasta principal.
 
+```
+  ./a
+```
 
 ## Características
 
