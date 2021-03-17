@@ -11,7 +11,7 @@ Alunos
   * Guilherme Puida Moreira : 200019015
   * Eduardo Rodrigues de Farias : 190086521
   * Paulo Maciel Torres Filho - 200025937
-  * 
+  * Arthur Ferreira Rodrigues : 200056981
 
 ## Programa que avalia a similaridade entre dois textos, atraves de cálculos de BOWs com base em um dicionário de palavras comum.
 
