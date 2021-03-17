@@ -24,28 +24,22 @@ Para executar o projeto, será necessário instalar os seguintes programas:
 - [CodeBlocks: Necessário para executar o projeto em C](https://www.codeblocks.org/downloads/)
 - [Mingw: Necessário para compilar o projeto em C](https://sourceforge.net/projects/mingw-w64/)
 
+## Desenvolvimento
+
+Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
+
+```shell
+cd "diretorio de sua preferencia"
+git clone https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I.git
+```
 
 
 
 ## Características
 
-O projeto pode ler arquivos de texto, um dicionário que será a base para a comparação e um texto qualquer que será comparado, e calcular e exportar suas BOWs , a comparação
-consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcule e mostre a Distância Euclidiana do texte e dicionário.
+O projeto pode ler arquivos de texto, um dicionário que será a base para a comparação e um texto qualquer que será comparado, calcular e exportar suas BOWs , a comparação
+consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcula e mostre a Distância Euclidiana do texte e dicionário.
 
-## Características
-
-O projeto lê um arquivo  de  dicionário
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## Testes
-
-Para rodar os testes, utilize o comando abaixo:
-
-```
-comando de teste
-```
 
 MIT License
 
