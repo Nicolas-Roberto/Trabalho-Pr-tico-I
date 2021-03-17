@@ -10,11 +10,12 @@ Trabalho Prático I EDA
 
 Nome                            | Matrícula  |
 --------------------------------|------------|
-Nícolas Roberto de Queiroz      | 200042360  |
-Guilherme Puida Moreira         | 200019015  |
 Eduardo Rodrigues de Farias     | 190086521  |
+Guilherme Puida Moreira         | 200019015  |
 Paulo Maciel Torres Filho       | 200025937  |
+Nícolas Roberto de Queiroz      | 200042360  |
 Arthur Ferreira Rodrigues       | 200056981  |
+
 
 
 ## Começando
