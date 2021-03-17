@@ -3,7 +3,7 @@ Trabalho Prático I EDA
 
 [![Build Status](https://travis-ci.org/condessalovelace/mavenquickstart.svg?branch=master)](https://travis-ci.org/condessalovelace/mavenquickstart) ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=br.com%3Amavenquickstart&metric=alert_status)
 
-### Programa que avalia a similaridade entre dois textos, atraves de cálculos de [BOWs](https://en.wikipedia.org/wiki/Bag-of-words_model), com base em um dicionário de palavras comum.
+### Programa em C que avalia a similaridade entre dois textos, atraves de cálculos de [BOWs](https://en.wikipedia.org/wiki/Bag-of-words_model), com base em um dicionário de palavras comum.
 
 ## Alunos
 
@@ -39,7 +39,7 @@ git clone https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I.git
 ## Características
 
 O projeto pode ler arquivos de texto, um dicionário que será a base para a comparação e um texto qualquer que será comparado, calcular e exportar suas BOWs , a comparação
-consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcula e mostre a Distância Euclidiana do texte e dicionário.
+consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcula e mostre a [Distância Euclidiana](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) do texte e dicionário.
 
 ## Complexidade 
 
