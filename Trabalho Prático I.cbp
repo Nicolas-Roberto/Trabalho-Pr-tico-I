@@ -36,9 +36,11 @@
 		</Unit>
 		<Unit filename="Biblioteca.h" />
 		<Unit filename="Texto.txt" />
+		<Unit filename="bibliotecaDict.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="teste.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

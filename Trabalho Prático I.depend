@@ -1,12 +1,17 @@
 # depslib dependency file v1.0
-1615918876 source:d:\projetos\eda\trabalho prático i\biblioteca.c
+1616064057 source:d:\projetos\eda\trabalho prático i\biblioteca.c
 	<stdio.h>
 	<stdlib.h>
 
-1615918378 source:d:\projetos\eda\trabalho prático i\main.c
+1616064475 source:d:\projetos\eda\trabalho prático i\main.c
 	<stdio.h>
 	<stdlib.h>
-	"Biblioteca.h"
+	"formating.h"
+	"menu.h"
+	"MensagensErro.h"
+	"bibliotecaDict.h"
+	"distEuclidiana.h"
+	"bowTRA.h"
 
 1615918339 d:\projetos\eda\trabalho prático i\biblioteca.c
 	<stdio.h>
@@ -17,4 +22,33 @@
 	<stdio.h>
 	<stdlib.h>
 	"Biblioteca.h"
+
+1616064447 d:\projetos\eda\trabalho prático i\formating.h
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1616064539 d:\projetos\eda\trabalho prático i\menu.h
+	"formating.h"
+
+1616064549 d:\projetos\eda\trabalho prático i\mensagenserro.h
+	<stdio.h>
+	<stdbool.h>
+	"formating.h"
+
+1616064010 d:\projetos\eda\trabalho prático i\bibliotecadict.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"formating.h"
+
+1616064395 d:\projetos\eda\trabalho prático i\disteuclidiana.h
+	<math.h>
+
+1616064329 d:\projetos\eda\trabalho prático i\bowtra.h
+	<ctype.h>
+	<string.h>
+	"formating.h"
 
