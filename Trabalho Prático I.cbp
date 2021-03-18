@@ -33,11 +33,9 @@
 		</Compiler>
 		<Unit filename="MensagensErro.h" />
 		<Unit filename="README.md" />
-		<Unit filename="Texto.txt" />
 		<Unit filename="bibliotecaDict.h" />
-		<Unit filename="bowA.txt" />
-		<Unit filename="bowB.txt" />
 		<Unit filename="bowTRA.h" />
+		<Unit filename="distEuclidiana.h" />
 		<Unit filename="formating.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
@@ -45,7 +43,6 @@
 		<Unit filename="main.exe" />
 		<Unit filename="menu.h" />
 		<Unit filename="pt_BR-full.txt" />
-		<Unit filename="teste.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
