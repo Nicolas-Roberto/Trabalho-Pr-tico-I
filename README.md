@@ -37,8 +37,8 @@ git clone https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I.git
 
 ## Características
 
-O projeto pode ler arquivos de texto, um dicionário que será a base para a comparação e um texto qualquer que será comparado, calcular e exportar suas BOWs , a comparação
-consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcula e mostre a [Distância Euclidiana](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) do texte e dicionário.
+O projeto pode ler arquivos de texto, um dicionário que será a base para a comparação e dois textostextoserão comparados, calcular e exportar suas BOWs , a comparação
+consiste em verificar se cada palavra do texto esta no dicionário e quantas vezes ela repete, e calcula e mostre a [Distância Euclidiana](https://pt.wikipedia.org/wiki/Dist%C3%A2ncia_euclidiana) do texto e dicionário.
 
 ## Complexidade 
 
