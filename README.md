@@ -42,5 +42,7 @@ consiste em verificar se cada palavra do texto esta no dicionário e quantas vez
 
 ## Complexidade 
 
-bigO
+O(n(a + b)), onde n = número de palavras no dicionário / a = número de palavras no arquivo de referência A / b = número de palavras no arquivo de referência de B.
+
+O pior e melhor caso são equivalentes ao caso médio, portanto Θ(n(a + b)) e  Ω(n(a + b))
 
