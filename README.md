@@ -33,13 +33,7 @@ Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num di
 cd "diretorio de sua preferencia"
 git clone https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I.git
 ```
-## Teste
 
-Abra o terminal na pasta principal.
-
-```
-  ./a
-```
 
 ## Características
 
