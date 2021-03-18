@@ -43,7 +43,7 @@ void printCaracter(int tamanho, int ondeParar, char carat)
     int quantidade = ondeParar-tamanho;
     int i;
     if (quantidade>0)
-    {    
+    {
         for (i=1; i<=quantidade;i++)
         {
             printf("%c",carat);
@@ -66,9 +66,9 @@ void printNumCentralizado (int n, int espaco) // Formata Titulo ao meio da pagin
     int tamanhoStr;
 
     sprintf(num, "%d", n); // Iguala a string "Num" ao numero inteiro
-    
+
     tamanhoStr = strlen(num);
-    
+
     if(tamanhoStr%2 != 0)
     {
         espaco++;
@@ -77,7 +77,7 @@ void printNumCentralizado (int n, int espaco) // Formata Titulo ao meio da pagin
     pular = espaco - tamanhoStr;
 
     if(pular>0) // Evita erros na funcao printEspacoMeio
-    {    
+    {
         printEspacoMeio(tamanhoStr,espaco);
         printf("%s",num);
         if(tamanhoStr%2 != 0)
@@ -96,9 +96,9 @@ void retornaMenu() //Pausa o terminal ate que o usuario aperte enter e volte ao 
 {
     separaTexto();
     printf("Aperte ENTER para voltar ao menu.");
-    
+
     // Espera uma input do usuario e pausa o terminal
-    getchar(); 
+    getchar();
     getchar();
     clear();
 }

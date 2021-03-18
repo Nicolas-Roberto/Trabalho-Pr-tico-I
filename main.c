@@ -10,12 +10,13 @@
 
 int main()
 {
-    int inputMenu;
-    int tamanho;
+    int inputMenu; // Entrada do usuario para ver a escolha da opcao do menu
+    int tamanho_dict;
     int *ContA, *ContB;
     int verEntrada;
 
     static char dict[300000][100];
+    // Dict e uma Array de Strings, armazena todas as palavras do dicionario
 
     double dist;
 
@@ -59,12 +60,12 @@ int main()
             }
             while(erroArquivoInvalido(arqDict)==true);
 
-            tamanho = contaLinhas(arqDict); // Conta quatas linhas tem o arquivo que foi aberto
+            tamanho_dict = contaLinhas(arqDict); // Conta quatas linhas tem o arquivo que foi aberto
             criarDict(arqDict, dict); // Cria um dicionario (arquivo dict)
 
             // Alocacao de memoria
-            ContA = (int *)calloc(tamanho,sizeof(int));
-            ContB = (int *)calloc(tamanho,sizeof(int));
+            ContA = (int *)calloc(tamanho_dict,sizeof(int));
+            ContB = (int *)calloc(tamanho_dict,sizeof(int));
 
             separaTexto();
             printf("O Dicionario '%s' foi aberto com sucesso.",nomeDicionario);
@@ -79,7 +80,7 @@ int main()
             }
 
             free(ContA);
-            ContA = (int *)calloc(tamanho,sizeof(int));
+            ContA = (int *)calloc(tamanho_dict,sizeof(int));
 
             do // Scan diretorio/nome do arquivo
             {
@@ -89,13 +90,17 @@ int main()
             }
             while(erroArquivoInvalido(referenciaA)==true);
 
+            separaTexto();
+            printf("O Texto de Referencia '%s' foi aberto com sucesso.\n",nomeTRA);
+            printf("Contagem sendo efetuada, aguarde.");
 
+            // Contagem das palavras contidas no dicionario
             bowTRA = fopen("bowA.txt", "w");
-            gerarBow_Cont(bowTRA,ContA,referenciaA,dict,tamanho);
+            gerarBow_Cont(bowTRA,ContA,referenciaA,dict,tamanho_dict);
             fclose(bowTRA);
 
             separaTexto();
-            printf("O Texto de Referencia '%s' foi aberto com sucesso.", nomeTRA);
+            printf("Contagem efetuada com sucesso.");
             break;
 
         case (3): // Ler Texto de Referencia B (TRB)
@@ -107,7 +112,7 @@ int main()
             }
 
             free(ContB);
-            ContB = (int *)calloc(tamanho,sizeof(int));
+            ContB = (int *)calloc(tamanho_dict,sizeof(int));
 
             do // Scan diretorio/nome do arquivo
             {
@@ -117,12 +122,17 @@ int main()
             }
             while(erroArquivoInvalido(referenciaB)==true);
 
+            separaTexto();
+            printf("O Texto de Referencia '%s' foi aberto com sucesso.\n",nomeTRB);
+            printf("Contagem sendo efetuada, aguarde.");
+
+            // Contagem das palavras contidas no dicionario
             bowTRB = fopen("bowB.txt", "w");
-            gerarBow_Cont(bowTRB,ContB,referenciaB,dict,tamanho);
+            gerarBow_Cont(bowTRB,ContB,referenciaB,dict,tamanho_dict);
             fclose(bowTRB);
 
             separaTexto();
-            printf("O Texto de Referencia '%s' foi aberto com sucesso.",nomeTRB);
+            printf("Contagem efetuada com sucesso.");
             break;
 
         case (4): // Exibir BOWs de TRA e TRB
@@ -138,7 +148,7 @@ int main()
                 break;
             }
 
-            printaBOWs(ContA,ContB,dict,tamanho);
+            printaBOWs(ContA,ContB,dict,tamanho_dict);
 
             break;
 
@@ -156,7 +166,7 @@ int main()
             }
 
 
-            dist = distEuclidiana(tamanho, ContA, ContB);
+            dist = distEuclidiana(tamanho_dict, ContA, ContB);
             printf("\nDistancia Euclidiana entre '%s' e '%s' = %f\n", nomeTRA, nomeTRB, dist);
 
             break;
@@ -175,7 +185,7 @@ int main()
                 fclose(referenciaA);
             if(!referenciaB)
                 fclose(referenciaB);
-            
+
             return 0; // Confirmacao de saida
         }
 
