@@ -3,6 +3,7 @@
 
 #include <ctype.h>
 #include <string.h>
+
 #include "formating.h"
 
 /*
@@ -32,7 +33,7 @@ typedef struct
 } Indice;
 
 /*
-
+preencherPosicoes - O(n), n = numero de elementos no dict.
 */
 void preencherPosicoes(Indice indices[], int *tamanhoArrayIndice, char dict[][100], int tamanhoDict)
 {
@@ -66,7 +67,7 @@ void preencherPosicoes(Indice indices[], int *tamanhoArrayIndice, char dict[][10
 }
 
 /*
-
+resgatarIndiceAtual - O(n), n = tamanho dos indices
 */
 Indice resgatarIndiceAtual(char primeiraLetra, Indice indices[], int tamanhoIndices)
 {
@@ -85,7 +86,7 @@ Indice resgatarIndiceAtual(char primeiraLetra, Indice indices[], int tamanhoIndi
 }
 
 /*
-
+gerarBow_Cont - O(n), n = tamanho do arquivo de referencia
 */
 void gerarBow_Cont(FILE* bow, int cont[], FILE* referencia, char dict[][100], int tamanho)
 {
@@ -124,19 +125,24 @@ void gerarBow_Cont(FILE* bow, int cont[], FILE* referencia, char dict[][100], in
 }
 
 /*
-
+printaBOWs - O(n), n = tamanho do dict.
 */
 void printaBOWs(int *ContA, int *ContB, char dict[][100], int tamanho)
 {
+    printf("\n                 Palavra               |BOW TRA |BOW TRB |");
+    printf("\n------------------------------------------------------------");
     for(int i = 0; i < tamanho; i++)
     {
         if(ContA[i] + ContB[i] != 0)
         {
-            printf("\nPalavra: %s\n", dict[i]);
-            printf("bowA\tbowB\n");
-            printf("%d\t%d\n", ContA[i], ContB[i]);
+            printf("\n%s",dict[i]);
+            printCaracter(strlen(dict[i]),strlen("                 Palavra               "),' ');
+            printf("|");
+            printNumCentralizado(ContA[i],8);
+            printf("|");
+            printNumCentralizado(ContB[i],8);
+            printf("|");
         }
     }
 }
 #endif // BOWTRA_H_INCLUDED
-

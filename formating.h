@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <conio.h> // Para pausar o menu
+ // Para pausar o menu
 
 void clear() // Limpa o Terminal
 {
@@ -24,7 +24,7 @@ void separaTexto () // Imprime uma serie de - para separar o texto
     printf("\n------------------------------------------------------------\n");
 }
 
-void printEspacoMeio (int tamTexto, int tamDivisor) //imprime espaços ate que a palavra esteja ao centro
+void printEspacoMeio (int tamTexto, int tamDivisor) //imprime espaÃ§os ate que a palavra esteja ao centro
 {
 
     // tamDivisor(separaTexto/* */)=60/104;
@@ -38,6 +38,19 @@ void printEspacoMeio (int tamTexto, int tamDivisor) //imprime espaços ate que a 
 
 }
 
+void printCaracter(int tamanho, int ondeParar, char carat)
+{
+    int quantidade = ondeParar-tamanho;
+    int i;
+    if (quantidade>0)
+    {    
+        for (i=1; i<=quantidade;i++)
+        {
+            printf("%c",carat);
+        }
+    }
+}
+
 void printTitulo (char titulo[]) // Formata Titulo ao meio da pagina
 {
     separaTexto();
@@ -46,15 +59,51 @@ void printTitulo (char titulo[]) // Formata Titulo ao meio da pagina
     separaTexto();
 }
 
-void retornaMenu() //Pausa o terminar ate que o usuario aperte enter e volte ao menu
+void printNumCentralizado (int n, int espaco) // Formata Titulo ao meio da pagina
+{
+    char num[10];
+    int pular;
+    int tamanhoStr;
+
+    sprintf(num, "%d", n); // Iguala a string "Num" ao numero inteiro
+    
+    tamanhoStr = strlen(num);
+    
+    if(tamanhoStr%2 != 0)
+    {
+        espaco++;
+    }
+
+    pular = espaco - tamanhoStr;
+
+    if(pular>0) // Evita erros na funcao printEspacoMeio
+    {    
+        printEspacoMeio(tamanhoStr,espaco);
+        printf("%s",num);
+        if(tamanhoStr%2 != 0)
+        {
+            espaco--;
+        }
+        printEspacoMeio(tamanhoStr,espaco);
+    }
+    else
+    {
+        printf("%s",num);
+    }
+}
+
+void retornaMenu() //Pausa o terminal ate que o usuario aperte enter e volte ao menu
 {
     separaTexto();
     printf("Aperte ENTER para voltar ao menu.");
-    _getch(); // Espera uma input do usuario e pausa o terminal
+    
+    // Espera uma input do usuario e pausa o terminal
+    getchar(); 
+    getchar();
     clear();
 }
 
-void formatar(char str[])
+void formatar(char str[]) // Retira pontuacao e deixa tudo minusculo
 {
     str[strcspn(str, ",.!?")] = 0;
 
@@ -65,4 +114,3 @@ void formatar(char str[])
 }
 
 #endif
-

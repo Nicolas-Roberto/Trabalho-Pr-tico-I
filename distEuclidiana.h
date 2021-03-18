@@ -1,7 +1,12 @@
+
 #ifndef DISTEUCLIDIANA_H_INCLUDED
 #define DISTEUCLIDIANA_H_INCLUDED
 
 #include <math.h>
+
+/*
+distEuclidiana - O(n), n = numero de elementos no dicionario.
+*/
 
 double distEuclidiana(int tamanho, int *ContA, int *ContB) // Calcular a similaridade entre os dois BOW's
 {
@@ -14,9 +19,7 @@ double distEuclidiana(int tamanho, int *ContA, int *ContB) // Calcular a similar
     {
         soma += pow(ContA[i] - ContB[i], 2);
     }
-    printf("%f",soma);
     return pow(soma, 0.5);
 }
 
 #endif // DISTEUCLIDIANA_H_INCLUDED
-

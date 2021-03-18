@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1616064475 source:d:\projetos\eda\trabalho prático i\main.c
+1616085403 source:d:\projetos\eda\trabalho prático i\main.c
 	<stdio.h>
 	<stdlib.h>
 	"formating.h"
@@ -23,31 +23,30 @@
 	<stdlib.h>
 	"Biblioteca.h"
 
-1616064447 d:\projetos\eda\trabalho prático i\formating.h
+1616085403 d:\projetos\eda\trabalho prático i\formating.h
 	<stdio.h>
 	<string.h>
 	<ctype.h>
-	<conio.h>
 
-1616064539 d:\projetos\eda\trabalho prático i\menu.h
+1616085403 d:\projetos\eda\trabalho prático i\menu.h
 	"formating.h"
 
-1616064549 d:\projetos\eda\trabalho prático i\mensagenserro.h
+1616085403 d:\projetos\eda\trabalho prático i\mensagenserro.h
 	<stdio.h>
 	<stdbool.h>
 	"formating.h"
 
-1616064010 d:\projetos\eda\trabalho prático i\bibliotecadict.h
+1616085403 d:\projetos\eda\trabalho prático i\bibliotecadict.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"formating.h"
 
-1616064395 d:\projetos\eda\trabalho prático i\disteuclidiana.h
+1616085403 d:\projetos\eda\trabalho prático i\disteuclidiana.h
 	<math.h>
 
-1616064329 d:\projetos\eda\trabalho prático i\bowtra.h
+1616085403 d:\projetos\eda\trabalho prático i\bowtra.h
 	<ctype.h>
 	<string.h>
 	"formating.h"

@@ -12,7 +12,7 @@ void erroOpcaoValida(int input,int menor,int maior) // "Erro: Selecione uma opca
     if (input<menor || input>maior)
     {
         separaTexto();
-        printf("Erro: Selecione uma opcao valida!");
+        printf("Erro: Selecione uma opcao valida!"); 
         separaTexto();
     }
 }
@@ -22,7 +22,7 @@ bool erroArquivoInvalido(FILE *arquivo) // "Erro: Digite um Arquivo Invalido !"
     if(arquivo==NULL)
     {
         separaTexto();
-        printf("Erro: Arquivo Invalido !");
+        printf("Erro: Arquivo Invalido !"); 
         separaTexto();
 
         return true;

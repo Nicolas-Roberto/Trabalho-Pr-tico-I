@@ -10,6 +10,9 @@
 
 #include "formating.h"
 
+/*
+contaLinhas - O(n), n = numero de caracteres no arquivo.
+*/
 int contaLinhas(FILE* arquivo) // Conta quatas linhas tem o arquivo
 {
     char c;
@@ -22,11 +25,12 @@ int contaLinhas(FILE* arquivo) // Conta quatas linhas tem o arquivo
     rewind(arquivo);
     return tamanho;
 }
-
+/*
+criarDict - O(n), n = numero de linhas no dicionario
+*/
 void criarDict(FILE * arq, char dict[][100]) // Cria um dicionario
 {
     int i = 0;
-    //char string[100];
 
     while(fscanf(arq, "%s", dict[i]) != EOF)
     {
@@ -38,4 +42,3 @@ void criarDict(FILE * arq, char dict[][100]) // Cria um dicionario
 
 
 #endif // BIBLIOTECADICT_H_INCLUDED
-
