@@ -32,10 +32,12 @@ typedef struct
     int fim;
 } Indice;
 
-/*
-preencherPosicoes - O(n), n = numero de elementos no dict.
-*/
+
 void preencherPosicoes(Indice indices[], int *tamanhoArrayIndice, char dict[][100], int tamanhoDict)
+    /*
+    Percorre todo o dicionario e salva a posicao de inicio e fim de cada letra
+    Complexidade - O(n), n = numero de elementos no dict.
+    */
 {
     char primeiraLetraAtual = dict[0][0];
 
@@ -66,10 +68,16 @@ void preencherPosicoes(Indice indices[], int *tamanhoArrayIndice, char dict[][10
     }
 }
 
-/*
-resgatarIndiceAtual - O(n), n = tamanho dos indices
-*/
+
 Indice resgatarIndiceAtual(char primeiraLetra, Indice indices[], int tamanhoIndices)
+    /*
+    Verifica se tem, no dicionario, alguma palavra que comeca com a letra da palavra que esta
+    sendo analisada e pega a posicao de inicio e fim em que essas letras aparecem
+
+    Complexidade - O(n), n = número de indices.
+    Melhor caso - O(1)
+    Pior caso - O(n)
+    */
 {
     Indice indiceAtual = {' ',-1,-1};
 
@@ -85,10 +93,11 @@ Indice resgatarIndiceAtual(char primeiraLetra, Indice indices[], int tamanhoIndi
     return indiceAtual;
 }
 
-/*
-gerarBow_Cont - O(n), n = tamanho do arquivo de referencia
-*/
+
 void gerarBow_Cont(FILE* bow, int cont[], FILE* referencia, char dict[][100], int tamanho)
+    /*
+    Complexidade - O(n + a), n = numero de palavras no dicionario, a = numero de palavras no arquivo de referencia
+    */
 {
     char palavraLida[100];
 
@@ -96,19 +105,19 @@ void gerarBow_Cont(FILE* bow, int cont[], FILE* referencia, char dict[][100], in
     Indice indiceAtual;
     int tamanhoArrayIndices = 0;
 
-    preencherPosicoes(indices,&tamanhoArrayIndices,dict, tamanho);
+    preencherPosicoes(indices,&tamanhoArrayIndices,dict, tamanho); // O(n), n = palavras no dicionario
 
-    while(fscanf(referencia, "%s", palavraLida) != EOF)
+    while(fscanf(referencia, "%s", palavraLida) != EOF) // O(a), a = palavras no arquivo de referencia
     {
         fgetc(referencia);
 
         formatar(palavraLida);
 
-        indiceAtual = resgatarIndiceAtual(palavraLida[0], indices, tamanhoArrayIndices);
+        indiceAtual = resgatarIndiceAtual(palavraLida[0], indices, tamanhoArrayIndices); // O(b), b = numero de indices, b <= n
 
         if(indiceAtual.inicio != -1)
         {
-            for(int i = indiceAtual.inicio; i <= indiceAtual.fim; i++)
+            for(int i = indiceAtual.inicio; i <= indiceAtual.fim; i++) // O(c), c = numero de elementos no indice, c <= n
             {
                 if(strcmp(palavraLida, dict[i]) == 0)
                 {
@@ -118,16 +127,21 @@ void gerarBow_Cont(FILE* bow, int cont[], FILE* referencia, char dict[][100], in
         }
     }
 
-    for(int i = 0; i < tamanho; i++)
+    for(int i = 0; i < tamanho; i++) // O(n)
     {
         fprintf(bow,"%d %s\n", cont[i], dict[i]);
     }
+
+    // Complexidade total = O(n + a(b + c) + n) = O(n + a)
 }
 
-/*
-printaBOWs - O(n), n = tamanho do dict.
-*/
 void printaBOWs(int *ContA, int *ContB, char dict[][100], int tamanho)
+/*
+    Cria uma tabela com as palavras compativeis com o dicionario e a quantidade
+    de vezes que aparecem emBOW A e BOW B
+
+    Complexidade - O(n), n = tamanho do dict.
+*/
 {
     printf("\n                 Palavra               |BOW TRA |BOW TRB |");
     printf("\n------------------------------------------------------------");

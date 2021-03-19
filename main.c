@@ -1,30 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "menu.h" // Contem os cases
 #include "formating.h"
-#include "menu.h"
-#include "MensagensErro.h"
-#include "bibliotecaDict.h"
-#include "distEuclidiana.h"
-#include "bowTRA.h"
+
+/*
+    Grupo :
+    - 200056981_Arthur Ferreira Rodrigues
+    - 190086521_Eduardo Rodrigues de Farias
+    - 200019015_Guilherme Puida Moreira
+    - 200042360_Nícolas Roberto de Queiroz
+    - 200025937_Paulo Maciel Torres Filho
+
+    README @ https://github.com/Nicolas-Roberto/Trabalho-Pr-tico-I/blob/main/README.md
+*/
 
 int main()
 {
     int inputMenu; // Entrada do usuario para ver a escolha da opcao do menu
-    int tamanho_dict;
-    int *ContA, *ContB;
-    int verEntrada;
+    int tamanho_dict; // Tamanho do Dicionario
+    int *ContA, *ContB; //Contador de palavras do TRA e do TRB, respectivamente
 
-    static char dict[300000][100];
-    // Dict e uma Array de Strings, armazena todas as palavras do dicionario
+    // f == false / t == false
+    char existeDict = 'f';
+    char existeTRA = 'f';
+    char existeTRB = 'f';
 
-    double dist;
+    static char dict[300000][100];//Dict e uma Array de Strings, armazena todas as palavras do dicionario
 
-    //Nomes Arquivos
-    char nomeDicionario[50]; // Dicionario
-    char nomeTRA[50]; // Referencia A
-    char nomeTRB[50]; // Referencia B
-
+    //Declaracao dos arquivos
     FILE *arqDict = NULL;
     FILE *referenciaA = NULL;
     FILE *referenciaB = NULL;
@@ -41,7 +45,6 @@ int main()
             scanf("%d", &inputMenu);
 
             erroOpcaoValida(inputMenu,0,5); // Mostra Erro se a opcao nao existir
-
         }
         while(inputMenu<0 || inputMenu>5) ;
 
@@ -50,146 +53,67 @@ int main()
         switch(inputMenu)
         {
         case (1): // Ler Arquivo Dicionario
-            printTitulo("Ler Arquivo Dicionario");
-
-            do // Scan diretorio/nome do arquivo
-            {
-                printf("Informe o nome do arquivo de dicionario : ");
-                scanf(" %[^\n]s", &nomeDicionario);
-                arqDict = fopen(nomeDicionario, "r"); // Abertura do arquivo desejado
-            }
-            while(erroArquivoInvalido(arqDict)==true);
-
-            tamanho_dict = contaLinhas(arqDict); // Conta quatas linhas tem o arquivo que foi aberto
-            criarDict(arqDict, dict); // Cria um dicionario (arquivo dict)
+                  // O(n), n = palavras no dicionario
+            case1(arqDict, &tamanho_dict, dict, &existeDict);
 
             // Alocacao de memoria
             ContA = (int *)calloc(tamanho_dict,sizeof(int));
             ContB = (int *)calloc(tamanho_dict,sizeof(int));
-
-            separaTexto();
-            printf("O Dicionario '%s' foi aberto com sucesso.",nomeDicionario);
             break;
 
         case (2): // Ler Texto de Referencia A (TRA)
-            printTitulo("Ler Texto de Referencia A (TRA)");
-
-            if (!arqDict) {
-                printf("Abra um arquivo de dicionario antes de abrir um arquivo de referencia.");
-                break;
-            }
-
-            free(ContA);
-            ContA = (int *)calloc(tamanho_dict,sizeof(int));
-
-            do // Scan diretorio/nome do arquivo
-            {
-                printf("Informe o nome do Arquivo de Referencia A : ");
-                scanf(" %[^\n]s", &nomeTRA);
-                referenciaA = fopen(nomeTRA, "r"); // Abertura do arquivo desejado
-            }
-            while(erroArquivoInvalido(referenciaA)==true);
-
-            separaTexto();
-            printf("O Texto de Referencia '%s' foi aberto com sucesso.\n",nomeTRA);
-            printf("Contagem sendo efetuada, aguarde.");
-
-            // Contagem das palavras contidas no dicionario
-            bowTRA = fopen("bowA.txt", "w");
-            gerarBow_Cont(bowTRA,ContA,referenciaA,dict,tamanho_dict);
-            fclose(bowTRA);
-
-            separaTexto();
-            printf("Contagem efetuada com sucesso.");
+                  // O(n + a), n = palavras no dicionario, a = palavras no arquivo de referencia A
+            case2_3(referenciaA, bowTRA, tamanho_dict, ContA, dict, existeDict, &existeTRA,'A');
             break;
 
         case (3): // Ler Texto de Referencia B (TRB)
-            printTitulo("Ler Texto de Referencia B (TRB)");
-
-            if (!arqDict) {
-                printf("Abra um arquivo de dicionario antes de abrir um arquivo de referencia.");
-                break;
-            }
-
-            free(ContB);
-            ContB = (int *)calloc(tamanho_dict,sizeof(int));
-
-            do // Scan diretorio/nome do arquivo
-            {
-                printf("Informe o nome do Arquivo de Referencia B : ");
-                scanf(" %[^\n]s", &nomeTRB);
-                referenciaB = fopen(nomeTRB, "r"); // Abertura do arquivo desejado
-            }
-            while(erroArquivoInvalido(referenciaB)==true);
-
-            separaTexto();
-            printf("O Texto de Referencia '%s' foi aberto com sucesso.\n",nomeTRB);
-            printf("Contagem sendo efetuada, aguarde.");
-
-            // Contagem das palavras contidas no dicionario
-            bowTRB = fopen("bowB.txt", "w");
-            gerarBow_Cont(bowTRB,ContB,referenciaB,dict,tamanho_dict);
-            fclose(bowTRB);
-
-            separaTexto();
-            printf("Contagem efetuada com sucesso.");
+                  // O(n + b), n = palavras no dicionario, b = palavras no arquivo de referencia B
+            case2_3(referenciaB, bowTRB, tamanho_dict, ContB, dict, existeDict, &existeTRB,'B');
             break;
 
         case (4): // Exibir BOWs de TRA e TRB
-            printTitulo("Exibir BOWs de TRA e TRB ");
-
-            if (!arqDict) {
-                printf("Abra um arquivo de dicionario antes de prosseguir.");
-                break;
-            }
-
-            if (!referenciaA || !referenciaB) {
-                printf("Abra os arquivos de referencia antes de prosseguir.");
-                break;
-            }
-
-            printaBOWs(ContA,ContB,dict,tamanho_dict);
-
+                  // O(n), n = palavras no dicionario
+            case4(tamanho_dict, ContA, ContB, dict, existeDict, existeTRA, existeTRB);
             break;
 
         case (5): // Mostrar similaridade entre TRA e TRB
-            printTitulo("Exibir similaridade entre os dois textos");
-
-            if (!arqDict) {
-                printf("Abra um arquivo de dicionario antes de prosseguir.");
-                break;
-            }
-
-            if (!referenciaA || !referenciaB) {
-                printf("Abra os arquivos de referencia antes de prosseguir.");
-                break;
-            }
-
-
-            dist = distEuclidiana(tamanho_dict, ContA, ContB);
-            printf("\nDistancia Euclidiana entre '%s' e '%s' = %f\n", nomeTRA, nomeTRB, dist);
-
+                  // O(n), n = palavras no dicionario
+            case5(tamanho_dict, ContA, ContB, existeDict, existeTRA, existeTRB);
             break;
 
+        /*
+
+        Complexidade total do programa: O(n + (n + a) + (n + b) + n + n) = O(n + a + b)
+        Melhor caso: O(n + a + b)
+        Pior caso: O(n + a + b)
+
+        n = numero de palavras no dicionario,
+        a = numero de palavras no arquivo de referencia A,
+        b = numero de palavras no arquivo de referencia B.
+
+        */
+
+
+
         case (0): // Sair
+            separaTexto();
             printf("Programa Encerrado");
+            separaTexto();
 
             // Desalocacao de memoria
             free(ContA);
             free(ContB);
 
             // Fechando arquivo(s)
-            if(!arqDict)
+            if(existeDict == 'f')
                 fclose(arqDict);
-            if(!referenciaA)
+            if(existeTRA == 'f')
                 fclose(referenciaA);
-            if(!referenciaB)
+            if(existeTRB == 'f')
                 fclose(referenciaB);
 
             return 0; // Confirmacao de saida
         }
-
         retornaMenu(); // Pausa o terminar ate que o usuario aperte enter e volte ao menu
-    }
-    while(1);
+    }while(1);
 }

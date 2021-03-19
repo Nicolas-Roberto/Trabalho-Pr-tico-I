@@ -31,18 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="MensagensErro.h" />
 		<Unit filename="README.md" />
-		<Unit filename="bibliotecaDict.h" />
-		<Unit filename="bowTRA.h" />
-		<Unit filename="distEuclidiana.h" />
-		<Unit filename="formating.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.exe" />
-		<Unit filename="menu.h" />
-		<Unit filename="pt_BR-full.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

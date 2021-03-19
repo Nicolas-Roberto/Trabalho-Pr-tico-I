@@ -1,6 +1,13 @@
-
 #ifndef DISTEUCLIDIANA_H_INCLUDED
 #define DISTEUCLIDIANA_H_INCLUDED
+/*
+    Caso de Erro na biblioteca <math.h>, compilar utilizando o seguinte comando:
+
+    ' gcc main.c -o a -lm '
+
+    e executar utilizando :
+    ./a
+*/
 
 #include <math.h>
 
@@ -8,7 +15,7 @@
 distEuclidiana - O(n), n = numero de elementos no dicionario.
 */
 
-double distEuclidiana(int tamanho, int *ContA, int *ContB) // Calcular a similaridade entre os dois BOW's
+double distEuclidiana(int tamanho, int *ContA, int *ContB) // Calcular a similaridade entre TRA e TRB
 {
 
     double soma = 0;
